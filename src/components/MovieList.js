@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 
 const MovieList = () => {
     const [movieList, setMovieList] = useState([]);
-    const [asc, setAsc] = useState('');
-    const [desc, setDesc] = useState('');
+    const [, setAsc] = useState('');
+    const [, setDesc] = useState('');
 
     useEffect(() => {
         Axios.get('./moviesList.json')
@@ -17,15 +17,13 @@ const MovieList = () => {
     }, []);
 
     const sortByPriceAsc = () => {
-        setAsc(prevState => {
-            movieList.sort((a, b) => (a.rank - b.rank))
-        });
+        const asc = movieList.sort((a, b) => (a.rank - b.rank));
+        setAsc({asc});
     }
 
     const sortByPriceDesc = () => {
-        setDesc(prevState => {
-            movieList.sort((a, b) => (b.rank - a.rank))
-        });
+        const desc = movieList.sort((a, b) => (b.rank - a.rank));
+        setDesc({desc});
     }
 
     const listOfMovies = movieList.map((movie, index) => {
