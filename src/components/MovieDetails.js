@@ -6,7 +6,7 @@ const MovieDetails = (props) => {
     const [movie, setMovie] = useState('');
     
     useEffect(() => {
-        axios.get(`/moviesList.json`)
+        axios.get('/moviesList.json')
             .then(response => {
                 const movieItems = response.data.components[1].items
                 setMovie(movieItems.find(mov => {

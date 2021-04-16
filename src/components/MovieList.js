@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 // import Movie from './Movie';
 
-const MovieList = (props) => {
+const MovieList = () => {
     const [movieList, setMovieList] = useState([]);
     const [asc, setAsc] = useState('');
     const [desc, setDesc] = useState('');
