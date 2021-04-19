@@ -1,26 +1,23 @@
 import React, { useState, useEffect } from 'react';
-// import Axios from 'axios';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { startGetMovies } from '../actions/movies';
 
 
 const MovieList = (props) => {
-    // const [movieList, setMovieList] = useState([]);
     const [, setAsc] = useState('');
     const [, setDesc] = useState('');
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // Axios.get('./moviesList.json')
-        //     .then(res => {
-        //         setMovieList(res.data.components[1].items);
-        //     })
         props.dispatch(startGetMovies())
-        // setMovieList(props.movies[0]);
-        setIsLoading(false);
+        if(props.movies) {
+            setIsLoading(false);
+        }
     }, []);
+
     console.log(props, '----props');
+    
     const sortByPriceAsc = () => {
         const asc = props.movies.sort((a, b) => (a.rank - b.rank));
         setAsc({ asc });

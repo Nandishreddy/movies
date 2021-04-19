@@ -7,13 +7,6 @@ export const getMovies = (movies) => {
     }
 }
 
-export const viewMovie = (movies) => {
-    return {
-        type: 'VIEW_MOVIE',
-        payload: movies
-    }
-}
-
 export const startGetMovies = () => {
     return (dispatch) => {
         axios.get('./moviesList.json')
